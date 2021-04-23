@@ -59,4 +59,5 @@ gem "aws-sdk-s3", require: false
 gem 'devise'
 gem 'jwt'
 gem 'rack-cors'
+gem 'pg'
 
