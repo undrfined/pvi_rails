@@ -1,3 +1,59 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.articles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1), -2px 0px 5px rgba(0, 0, 0, 0.05);
+}
+
+.article__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 48px;
+  padding: 8px;
+  width: 100%;
+
+  background: #fff;
+}
+
+.article__header__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.article__header__username {
+  margin-left: 10px;
+}
+
+.article__photo {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.article__footer {
+  padding: 12px;
+}
+
+.article__footer__author {
+  font-weight: 600;
+}
+
+.article__footer__title {
+
+}
