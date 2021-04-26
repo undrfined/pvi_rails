@@ -8,18 +8,19 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/c82a77554d.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <div class="header">
-      <div class="header__logo">Fakestagram</div>
+      <a class="header__logo" href="<%= root_path %>">Fakestagram</a>
       <% if user_signed_in? %>
-        <%= link_to "Add Post", new_article_path, class: "header__button" %>
-        <%= link_to "Edit", edit_user_registration_path, class: "header__button" %>
+        <%= link_to "Add Post", new_article_path, class: "header__button header__button-first" %>
+        <%#= link_to "Edit", edit_user_registration_path, class: "header__button" %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "header__button" %>
         <img class="header__avatar" src="<%= url_for(current_user.avatar) %>"/>
       <% else %>
-        <%= link_to "Login", new_user_session_path, class: "header__button" %>
+        <%= link_to "Login", new_user_session_path, class: "header__button header__button-first" %>
     <% end %>
     </div>
     <p class="notice"><%= notice %></p>

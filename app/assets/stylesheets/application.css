@@ -21,3 +21,12 @@
 body, html {
     margin: 0;
 }
+
+.notice:not(:empty), .alert:not(:empty) {
+    padding: 12px;
+    background: rgb(125 212 114);
+    position: fixed;
+    right: 20px;
+    color: black;
+    bottom: 0;
+}

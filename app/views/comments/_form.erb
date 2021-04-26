@@ -1,15 +1,6 @@
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-
-  <p>
-    <%= form.label :status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
-  </p>
-
-  <p>
+<%= form_with model: [ article, article.comments.build ] do |form| %>
+  <div class="comment__form">
+    <%= form.text_area :body, rows: 1, class: "comment__input", placeholder: "Add comment" %>
     <%= form.submit %>
-  </p>
+  </div>
 <% end %>

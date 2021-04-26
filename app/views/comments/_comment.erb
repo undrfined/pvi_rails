@@ -1,13 +1,18 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.user.username %>
-</p>
+<div class="article__footer__comment">
+  <div class="article__footer__author">
+    <img class="article__footer__author__avatar" src="<%= url_for(comment.user.avatar) %>" alt="Avatar">
+    <%= comment.user.username %>
+  </div>
+  <div class="article__footer__title"><%= comment.body %></div>
+</div>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+<!--<p>-->
+<!--  <strong>Commenter:</strong>-->
+  <%#= comment.user.username %>
+<!--</p>-->
 
-<%= link_to "Destroy", article_comment_path(@article, comment),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
+<!--<p>-->
+<!--  <strong>Comment:</strong>-->
+  <%#= comment.body %>
+<!--</p>-->
+

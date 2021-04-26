@@ -1,8 +1,18 @@
-<a class="article" href="<%= article_path(article) %>">
+<div class="article">
   <div class="article__header">
     <img class="article__header__avatar" src="<%= url_for(article.user.avatar) %>">
     <div class="article__header__username">
       <%= article.user.username %>
+    </div>
+
+    <% article.user == current_user %>
+    <div class="article__header__controls">
+      <%= link_to article_path(article), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+      <%= link_to edit_article_path(article) do %>
+        <i class="far fa-edit"></i>
+      <% end %>
     </div>
   </div>
 
@@ -11,9 +21,23 @@
   <% end %>
 
   <div class="article__footer">
-    <span class="article__footer__author"><%= article.user.username %></span>
-    <span class="article__footer__title"><%= article.title %></span>
+    <div class="article__footer__comment">
+      <span class="article__footer__author">
+        <img class="article__footer__author__avatar" src="<%= url_for(article.user.avatar) %>" alt="Avatar">
+        <%= article.user.username %>
+      </span>
+      <span class="article__footer__title"><%= article.title %></span>
+    </div>
+
+    <div class="<%= class_names("article__footer__comments", "article__footer__comments-more": max_comments != -1 && article.comments.length > max_comments) %>">
+      <% article.comments[0..max_comments].each do |comment| %>
+        <%= render comment %>
+      <% end %>
+    </div>
+
+    <%= render "comments/form", article: article %>
+
 
   </div>
 
-</a>
+</div>

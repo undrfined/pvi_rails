@@ -4,7 +4,7 @@ class Article < ApplicationRecord
 
   has_one_attached :image
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :image, presence: true
   validates :title, presence: true
